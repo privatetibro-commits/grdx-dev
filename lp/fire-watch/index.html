@@ -151,8 +151,66 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   .who{grid-template-columns:1fr}
   .hero .wrap{padding-block:36px 44px}
 }
+
+/* draft notice */
+.draft{background:#FFF4D6;color:#5A4300;font-size:13px;text-align:center;padding:8px 16px}
+.draft b{font-weight:700}
+/* promise strip */
+.promise{background:var(--blue);color:#fff}
+.promise .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:24px;padding-block:22px;align-items:center}
+.promise .big{font:800 30px/1 var(--disp);text-transform:uppercase}
+.promise .big small{display:block;font:500 13px/1.4 var(--body);text-transform:none;opacity:.85;margin-top:6px}
+.promise div{font-size:14px;line-height:1.4}
+.promise div b{display:block;font:700 18px/1.1 var(--disp);text-transform:uppercase}
+/* how it works */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.how div{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:3px;position:relative}
+.how .n{font:500 13px/1 var(--mono);color:var(--blue);letter-spacing:.1em}
+.how h3{font-size:24px;margin:12px 0 8px}
+.how p{color:var(--mut);font-size:15px}
+.how .t{display:inline-block;margin-top:14px;font:500 12px/1 var(--mono);color:var(--fg);background:var(--paper);border:1px solid var(--line);padding:6px 8px;border-radius:2px}
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.rev{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:3px;display:flex;flex-direction:column;gap:14px}
+.stars{color:#F5A400;letter-spacing:2px;font-size:15px}
+.rev q{quotes:none;font-size:16px;line-height:1.55}
+.rev .who2{margin-top:auto;font-size:13px;color:var(--mut)}
+.rev .who2 b{display:block;color:var(--fg);font-size:14px}
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.logos span{background:var(--card);padding:18px 10px;text-align:center;font:700 15px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.rating{display:flex;align-items:center;gap:12px;margin-top:20px;font-size:14px;color:var(--mut)}
+.rating b{font:800 28px/1 var(--disp);color:var(--fg)}
+/* pricing + licenses */
+.pl{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.price{background:var(--ink2);color:var(--on-dark);padding:28px;border-radius:3px}
+.price .amt{font:800 56px/1 var(--disp);margin:10px 0 4px}
+.price .amt small{font:500 16px var(--body);color:var(--on-dark-mut)}
+.price ul,.lic ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px}
+.price li,.lic li{display:flex;gap:10px}
+.price li::before,.lic li::before{content:"";flex:0 0 8px;height:8px;margin-top:8px;background:var(--blue2);border-radius:50%}
+.price .btn{margin-top:22px}
+.lic{background:var(--card);border:1px solid var(--line);padding:28px;border-radius:3px}
+.lic h3,.price h3{font-size:26px}
+.lic .num2{font-family:var(--mono);font-size:13px;color:var(--mut)}
+/* leaders */
+.lead{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.lead div{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);padding:16px;border-radius:3px}
+.lead img{width:72px;height:72px;object-fit:cover;border-radius:2px;background:var(--paper)}
+.lead b{display:block;font:700 19px/1.1 var(--disp);text-transform:uppercase}
+.lead span{font-size:13px;color:var(--mut)}
+/* text-back */
+.textus{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:8;display:flex;align-items:center;gap:10px;background:var(--card);color:var(--fg);border:1px solid var(--line);box-shadow:0 12px 30px -10px rgba(0,0,0,.35);padding:12px 16px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px}
+.textus i{width:10px;height:10px;border-radius:50%;background:#22B35E}
+@media (max-width:900px){
+  .promise .wrap{grid-template-columns:1fr 1fr}
+  .how,.revs,.pl,.lead{grid-template-columns:1fr}
+  .logos{grid-template-columns:repeat(3,1fr)}
+  .textus{display:none}
+}
+@media (max-width:520px){.promise .wrap{grid-template-columns:1fr}.logos{grid-template-columns:1fr 1fr}}
 </style>
 
+<div class="draft"><b>Draft for review.</b> Response time, reviews, client names, rates and license details below are sample text until GRDX confirms them.</div>
 <header class="bar"><div class="wrap">
   <img src="img/grdx-letters-white.svg" alt="GRDX">
   <div class="r"><span class="num">(833) 350-4739</span><a class="btn fire" href="#request">Request fire watch</a></div>
@@ -194,6 +252,13 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   </div>
 </section>
 
+<section class="promise" aria-label="Our response promise"><div class="wrap">
+  <p class="big">On site in as little as 4 hours<small>Across Northern Virginia, D.C. and Maryland</small></p>
+  <div><b>Supervisor calls back</b>within 15 minutes of your request</div>
+  <div><b>Rounds start</b>the moment officers arrive</div>
+  <div><b>Log sent</b>to you at the end of every shift</div>
+</div></section>
+
 <section class="s"><div class="wrap">
   <span class="eyebrow">When you need it</span>
   <h2>Who asks for fire watch</h2>
@@ -202,6 +267,16 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
     <div><svg viewBox="0 0 24 24"><path d="M12 2.5c1 3.2 4.8 5.3 4.8 10a4.8 4.8 0 01-9.6 0c0-2.3 1-3.9 2.2-5.2.2 1.6 1 2.7 2 3.1-.4-2.6-.1-5.3.6-7.9z"/></svg><h3>Alarm or sprinklers down</h3><p>Panel failure, repairs, or a system being replaced. Coverage runs until it is fixed and signed off.</p></div>
     <div><svg viewBox="0 0 24 24"><path d="M4 20l6-6M14 4l6 6-8 8-6-6z"/><path d="M15 9l-6 6"/></svg><h3>Hot work</h3><p>Welding, cutting and roofing torches. An officer watches the area during the work and after it stops.</p></div>
     <div><svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V8l6-4 6 4v13M10 21v-5h4v5"/></svg><h3>Construction and renovation</h3><p>Job sites and buildings where life-safety systems are not live yet, or the permit says so.</p></div>
+  </div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+  <span class="eyebrow">How it works</span>
+  <h2>From call to coverage</h2>
+  <div class="how">
+    <div><span class="n">STEP 1</span><h3>Call or send the form</h3><p>Give us the address, what is out of service, and what the fire marshal asked for.</p><span class="t">About 2 minutes</span></div>
+    <div><span class="n">STEP 2</span><h3>We confirm the plan</h3><p>A supervisor calls back with the number of officers, the round interval and a start time, then puts it in writing.</p><span class="t">Within 15 minutes</span></div>
+    <div><span class="n">STEP 3</span><h3>Officers arrive and log</h3><p>Rounds begin on arrival. You get the full log after every shift, and it stays ready for the fire marshal.</p><span class="t">On site in as little as 4 hours</span></div>
   </div>
 </div></section>
 
@@ -234,6 +309,58 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
 </div></section>
 
 
+<section class="s" style="padding-top:0"><div class="wrap">
+  <span class="eyebrow">What clients say</span>
+  <h2>Property managers call us back</h2>
+  <div class="revs">
+    <div class="rev"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>Our sprinkler line failed on a Friday night. GRDX had two officers in the building before midnight, and the fire marshal signed off on their log Monday morning without a single question.</q><p class="who2"><b>Property manager</b>Apartment community, Reston VA</p></div>
+    <div class="rev"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>We needed a watch for three weeks of roof work with torches every day. Same officers every shift, rounds every 30 minutes, and a clean log each evening.</q><p class="who2"><b>Project superintendent</b>Commercial contractor, Fairfax County</p></div>
+    <div class="rev"><span class="stars" aria-label="5 out of 5">★★★★★</span><q>The alarm panel went down during a sold-out weekend. One call, and they covered every floor until the vendor finished the replacement.</q><p class="who2"><b>General manager</b>Hotel, Arlington VA</p></div>
+  </div>
+  <div class="rating"><b>4.9</b><span class="stars">★★★★★</span><span>Average Google rating from 38 reviews</span></div>
+  <div class="logos" aria-label="Client types">
+    <span>Multifamily</span><span>Hotels</span><span>Contractors</span><span>Offices</span><span>Churches</span><span>Warehouses</span>
+  </div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+  <span class="eyebrow">Pricing and credentials</span>
+  <h2>Clear rates, checked credentials</h2>
+  <div class="pl">
+    <div class="price">
+      <h3>Fire watch rate</h3>
+      <p class="amt">$48<small> per officer-hour</small></p>
+      <ul>
+        <li>4-hour minimum per shift</li>
+        <li>Book by the shift, the day or the week, no long contract</li>
+        <li>Overnight, weekend and holiday rates quoted up front</li>
+        <li>Logs and supervisor line included</li>
+      </ul>
+      <a class="btn fire" href="#request">Get an exact quote</a>
+    </div>
+    <div class="lic">
+      <h3>Licensed and insured</h3>
+      <ul>
+        <li><span>Virginia DCJS private security license <span class="num2">#11-0000</span></span></li>
+        <li><span>Licensed security officers in Washington D.C. and Maryland</span></li>
+        <li><span>$2,000,000 general liability coverage, certificate on request</span></li>
+        <li><span>Officers trained on fire watch rounds, logs and evacuation</span></li>
+        <li><span>Headquarters at 46396 Benedict Drive, Sterling, VA</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" style="padding-top:0"><div class="wrap">
+  <span class="eyebrow">Who runs it</span>
+  <h2>Led by current and former law enforcement</h2>
+  <div class="lead">
+    <div><img src="img/dineen.png" alt="Jeremiah Dineen"><p><b>Jeremiah Dineen</b><span>Chief of Special Police &amp; Security, CEO. Army Military Police veteran.</span></p></div>
+    <div><img src="img/cook.png" alt="Antoine Cook"><p><b>Antoine Cook</b><span>Deputy Chief, Director of Operations. Former D.C. Metropolitan Police.</span></p></div>
+    <div><img src="img/barnes.png" alt="Elgin Barnes"><p><b>Elgin Barnes</b><span>Director of Special Services. Nearly 30 years in law enforcement.</span></p></div>
+  </div>
+</div></section>
+
 <section class="s" style="padding-top:0"><div class="wrap faq">
   <span class="eyebrow">Questions</span>
   <h2>Before you call</h2>
@@ -248,6 +375,7 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   <h2>System down right now? Call the 24/7 line.</h2>
   <div class="acts"><span class="num">(833) 350-4739</span><a class="btn fire" href="#request">Request fire watch</a></div>
 </div></section>
+<a class="textus" href="sms:+18333504739"><i></i>Text a supervisor</a>
 <nav class="mbar" aria-label="Quick actions"><a class="btn ghost" href="tel:+18333504739">Call 24/7</a><a class="btn fire" href="#request">Get a quote</a></nav>
 <footer><div class="wrap"><span>GRDX™, a brand of iGlobal Security Group · 46396 Benedict Drive, Suite 200, Sterling, VA 20164</span><span>Fire or smoke? Call 911 first.</span></div></footer>
 
