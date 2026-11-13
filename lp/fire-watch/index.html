@@ -8,7 +8,7 @@
 /* Layout: dark command-desk hero with the request form beside the pitch, then light working sections, a sample round log, and a dark closing band. */
 :root{
   --ink:#0A0A0B; --ink2:#15171B; --ink3:#24262B;
-  --blue:#0070FF; --blue2:#5C9DFF; --flame:#FF6A2B;
+  --blue:#0070FF; --blue2:#5C9DFF; --flame:#0070FF;
   --paper:#F4F5F7; --card:#FFFFFF; --fg:#121317; --mut:#4a4f57; --line:#dde0e5;
   --on-dark:#F2F4F7; --on-dark-mut:#b0b5bd;
   --disp:'Saira Condensed','Arial Narrow',Impact,sans-serif;
@@ -33,7 +33,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .bar .r{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .num{font-family:var(--mono);color:var(--on-dark);font-size:15px;text-decoration:none;white-space:nowrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 15px/1 var(--body);text-decoration:none;border:0;border-radius:3px;padding:14px 20px;cursor:pointer;white-space:nowrap}
-.btn.fire{background:var(--flame);color:#140700}
+.btn.fire{background:var(--blue);color:#fff}
+.btn.ghost{background:transparent;color:var(--on-dark);border:1px solid #3a3d44}
 .btn.fire:hover{filter:brightness(1.08)}
 .btn.blue{background:var(--blue);color:#fff}
 .bar .btn{padding:10px 14px;font-size:14px}
@@ -43,12 +44,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero .bg{position:absolute;inset:0;background:url(img/fire-corridor.jpg) center/cover no-repeat;opacity:.38}
 .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 18%,rgba(10,10,11,.55) 60%,rgba(10,10,11,.85))}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;padding-block:56px 64px;align-items:start}
-.status{display:inline-flex;align-items:center;gap:10px;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--flame);border:1px solid rgba(255,106,43,.45);padding:8px 12px;border-radius:2px}
-.status i{width:8px;height:8px;border-radius:50%;background:var(--flame);box-shadow:0 0 0 0 rgba(255,106,43,.6);animation:ping 1.8s infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,106,43,.6)}80%,100%{box-shadow:0 0 0 10px rgba(255,106,43,0)}}
+.status{display:inline-flex;align-items:center;gap:10px;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue2);border:1px solid rgba(92,157,255,.45);padding:8px 12px;border-radius:2px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--blue2);box-shadow:0 0 0 0 rgba(92,157,255,.6);animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(92,157,255,.6)}80%,100%{box-shadow:0 0 0 10px rgba(92,157,255,0)}}
 @media (prefers-reduced-motion:reduce){.status i{animation:none}}
 .hero h1{font-size:clamp(44px,6.4vw,84px);font-weight:800;margin:20px 0 18px}
-.hero h1 em{font-style:normal;color:var(--flame)}
+.hero h1 em{font-style:normal;color:var(--blue2)}
 .hero .lede{font-size:19px;color:#D3D7DD;max-width:34em}
 .hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;align-items:center}
 .hero .acts .num{font-size:20px}
@@ -69,6 +70,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .form textarea{resize:vertical;min-height:72px}
 .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--blue);outline-offset:0;border-color:transparent}
 .form .btn{width:100%;margin-top:16px;padding:16px}
+.form .or{text-align:center;margin-top:12px;font-size:14px;color:var(--mut)}
+.form .or b{color:var(--fg);font-family:var(--mono)}
 .form small{display:block;margin-top:12px;color:var(--mut);font-size:12.5px}
 .ok{display:none;padding:18px;border-left:4px solid var(--blue);background:var(--paper)}
 .ok b{display:block;font:700 22px/1.1 var(--disp);text-transform:uppercase;margin-bottom:6px}
@@ -103,7 +106,7 @@ section.s h2{font-size:clamp(34px,4.4vw,52px);font-weight:800;margin:12px 0 14px
 .log th{color:var(--on-dark-mut);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .log td{color:var(--on-dark)}
 .log td.ok2{color:#7FD49A}
-.log td.fl{color:var(--flame)}
+.log td.fl{color:#FFB547}
 .log .ft{padding:12px 18px;font-size:12px;color:var(--on-dark-mut)}
 
 .who{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
@@ -132,6 +135,14 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   .when{grid-template-columns:1fr}
   .who{grid-template-columns:1fr 1fr}
 }
+@media (max-width:900px){
+  .hero .lede{font-size:17px}
+  .hero .acts,.hero .note,.hero .facts{display:none}
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--ink);border-top:1px solid var(--ink3);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  footer{padding-bottom:76px}
+}
+.mbar{display:none}
+@media (max-width:900px){.mbar{display:grid}}
 @media (max-width:520px){
   .bar .num{display:none}
   .facts{grid-template-columns:1fr}
@@ -155,8 +166,8 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
       <h1>Fire watch officers for your building, <em>while the system is down</em></h1>
       <p class="lede">The fire marshal wants someone walking the building until the alarm or sprinklers are fixed. GRDX sends licensed officers who run the rounds and keep the log the marshal will ask to see.</p>
       <div class="acts">
-        <a class="btn fire" href="#request">Request fire watch</a>
-        <span class="num">(833) 350-4739</span>
+        <a class="btn fire" href="#request">Get a quote</a>
+        <a class="btn ghost" href="tel:+18333504739">Call (833) 350-4739</a>
       </div>
       <p class="note">A supervisor answers 24/7. Northern Virginia, Washington D.C. and Maryland.</p>
       <div class="facts">
@@ -167,18 +178,16 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
     </div>
 
     <form class="form" id="request" novalidate>
-      <h2>Get officers on site</h2>
-      <p class="sub">Tell us the address and what is out of service. A supervisor calls you back to confirm officers and a start time.</p>
+      <h2>Get a fire watch quote</h2>
+      <p class="sub">Takes 30 seconds. A supervisor calls you back to confirm officers, rounds and a start time.</p>
       <div class="grid">
         <label for="fn">Full name<input id="fn" autocomplete="name" required></label>
         <label for="fp">Phone<input id="fp" type="tel" autocomplete="tel" required></label>
-        <label class="f" for="fe">Email<input id="fe" type="email" autocomplete="email"></label>
-        <label class="f" for="fa">Building address<input id="fa" placeholder="Street, city, state" autocomplete="street-address"></label>
-        <label for="fs">What is down?<select id="fs"><option>Fire alarm system</option><option>Sprinkler system</option><option>Both</option><option>Hot work / welding</option><option>Construction site</option><option>Not sure yet</option></select></label>
-        <label for="fw">When do you need us?<select id="fw"><option>As soon as possible</option><option>Today</option><option>Tomorrow</option><option>Later this week</option><option>Planned date</option></select></label>
-        <label class="f" for="fm">Anything else?<textarea id="fm" rows="3" placeholder="Floors, hours, what the fire marshal asked for"></textarea></label>
+                <label class="f" for="fa">Building address<input id="fa" placeholder="Street, city, state" autocomplete="street-address"></label>
+        <label class="f" for="fs">What is out of service?<select id="fs"><option>Fire alarm system</option><option>Sprinkler system</option><option>Both</option><option>Hot work / welding</option><option>Construction site</option><option>Not sure yet</option></select></label>
       </div>
-      <button class="btn fire" type="submit">Request fire watch</button>
+      <button class="btn fire" type="submit">Get my quote</button>
+      <div class="or">or call <b>(833) 350-4739</b> · answered 24/7</div>
       <small>Fire or smoke right now? Call 911 first.</small>
       <div class="ok" role="status"><b>Request received</b>A supervisor will call you to confirm officers and a start time. In a hurry? Call (833) 350-4739.<br><br><em style="font-size:13px;color:var(--mut)">Preview page: this form does not send anywhere yet.</em></div>
     </form>
@@ -224,16 +233,6 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   </div>
 </div></section>
 
-<section class="s" style="padding-top:0"><div class="wrap">
-  <span class="eyebrow">Where we post officers</span>
-  <h2>Buildings we cover</h2>
-  <div class="who">
-    <div><b>Apartments &amp; condos</b><span>Alarm panel failure, sprinkler repair</span></div>
-    <div><b>Offices</b><span>System replacement during renovation</span></div>
-    <div><b>Construction sites</b><span>Hot work and permit conditions</span></div>
-    <div><b>Hotels &amp; venues</b><span>Outages during occupied hours</span></div>
-  </div>
-</div></section>
 
 <section class="s" style="padding-top:0"><div class="wrap faq">
   <span class="eyebrow">Questions</span>
@@ -249,6 +248,7 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   <h2>System down right now? Call the 24/7 line.</h2>
   <div class="acts"><span class="num">(833) 350-4739</span><a class="btn fire" href="#request">Request fire watch</a></div>
 </div></section>
+<nav class="mbar" aria-label="Quick actions"><a class="btn ghost" href="tel:+18333504739">Call 24/7</a><a class="btn fire" href="#request">Get a quote</a></nav>
 <footer><div class="wrap"><span>GRDX™, a brand of iGlobal Security Group · 46396 Benedict Drive, Suite 200, Sterling, VA 20164</span><span>Fire or smoke? Call 911 first.</span></div></footer>
 
 <script>
